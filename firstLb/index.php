@@ -67,28 +67,8 @@ $num = $_GET['num'] ?? null;
 echo $num ? strrev($num) : null;
 ?>
 
-<p> Отримайте переставлені цифри так, щоб нове число виявилося найбільшим з можливих </p>
-<form action="">
-    <input type="text" name="number">
-    <button>Add</button>
-</form>
-<?php
-$number = $_GET['number'] ?? null;
+<p><a href="maxNum.php">Найбільше число з можливих</a></p>
 
-$array = str_split($number);
-
-$tmp = array();
-foreach ($array as $i) {
-    $tmp = array_merge($tmp, str_split($i, 1));
-}
-
-rsort($tmp, SORT_NUMERIC);
-
-$maxNumber = implode('', $tmp);
-echo $maxNumber;
-?>
-
-<br><br>
 <a href="kubik2.php">Кубик для двох</a>
 <br><br>
 <form action="">
