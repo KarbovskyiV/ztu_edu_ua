@@ -1,5 +1,4 @@
 <?php
-
 $arr = [
     'apple',
     'apple',

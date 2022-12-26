@@ -12,9 +12,11 @@
 </head>
 <body>
 <?php
-error_reporting(512);
+//error_reporting(512);
 $x = $_GET['x'];
 $y = $_GET['y'];
+
+// add checks or perevedy v tip
 
 $pow = $x ** $y;
 $factorial = array_product(range(1, $x));
@@ -24,7 +26,7 @@ $tgX = tan($x);
 $sum = $x + $y;
 $subtract = $x - $y;
 $multiply = $x * $y;
-$divide ? $x / $y : null;
+$divide = $x / $y;
 $avg = $sum / 2;
 
 ?>
