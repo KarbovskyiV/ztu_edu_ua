@@ -21,5 +21,7 @@ nextMonth = +month + 1;
 previousYear = year - 1;
 nextYear = +year + 1;
 
+// new Date()
+
 alert('Previous date ' + previousDay + '.' + previousMonth + '.' + previousYear);
 alert('Next date ' + nextDay + '.' + nextMonth + '.' + nextYear);
