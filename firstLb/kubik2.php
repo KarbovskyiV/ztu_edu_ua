@@ -13,19 +13,20 @@
     }
 </style>
 <form action="">
-    <input type="submit" name="kubik2" value="Кинути кубик для 2-ох">
+    <button type="submit">Кинути кубик для 2-ох</button>
+<!--    <input type="submit" name="kubik2" value="Кинути кубик для 2-ох">-->
 </form>
 <br>
 <?php
-$kubik = $_GET['kubik2'] ?? null;
 $randHuman = random_int(1, 6);
 $randHuman2 = random_int(1, 6);
 $randRobot = random_int(1, 6);
 $randRobot2 = random_int(1, 6);
+
 $kubikHuman = $randHuman + $randHuman2;
 $kubikRobot = $randRobot + $randRobot2;
 
-switch ($kubik) {
+switch (true) {
     case  ($randHuman === $randHuman2) && ($randRobot === $randRobot2):
         echo "<p> Нічия, велика удача </p>";
         echo "У Івана випало $randHuman і $randHuman2 ", '<br>';
@@ -45,7 +46,5 @@ switch ($kubik) {
         echo "<p> Переміг робот </p>";
         echo "У Івана випало $randHuman і $randHuman2", '<br>';
         echo "У робота випало $randRobot і $randRobot2";
-
-    default :
 }
 ?>

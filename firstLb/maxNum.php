@@ -6,17 +6,19 @@
 <?php
 $number = $_GET['number'] ?? null;
 
+// if !number
 if ($number) {
-    $array = str_split($_GET['number']);
+    $array = str_split((string)$number);
 
-    $tmp = array();
-    foreach ($array as $i) {
-        $tmp = array_merge($tmp, str_split($i, 1));
-    }
 
-    rsort($tmp, SORT_NUMERIC);
+//    $tmp = array();
+//    foreach ($array as $i) {
+//        $tmp = array_merge($tmp, str_split((string)$i));
+//    }
 
-    $maxNumber = implode('', $tmp);
+    rsort($array, SORT_NUMERIC);
+
+    $maxNumber = implode('', $array);
     echo $maxNumber;
 } else {
     return null;

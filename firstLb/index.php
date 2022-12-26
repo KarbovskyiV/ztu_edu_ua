@@ -49,7 +49,10 @@
 </form>
 <?php
 $hryvnia = $_GET['hryvnia'] ?? null;
+
+// add check like 'if not'
 $dollar = 37.0;
+
 
 echo $hryvnia ? $hryvnia . ' грн. можна обміняти на ' . round($hryvnia / $dollar, 2) . ' долар' : null;
 ?>
@@ -64,7 +67,7 @@ echo $hryvnia ? $hryvnia . ' грн. можна обміняти на ' . round(
 <?php
 $num = $_GET['num'] ?? null;
 
-echo $num ? strrev($num) : null;
+echo $num ? strrev((string)$num) : null;
 ?>
 
 <p><a href="maxNum.php">Найбільше число з можливих</a></p>
