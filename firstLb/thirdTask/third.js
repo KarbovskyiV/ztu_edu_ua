@@ -1,27 +1,14 @@
-let day, month, year;
+let day = parseInt(prompt('Enter day', 11));
+let month = parseInt(prompt('Enter month', 10));
+let year = parseInt(prompt('Enter year', 2022));
 
-day = prompt('Enter day');
-month = prompt('Enter month');
-year = prompt('Enter year');
+const today = new Date(year, month, day)
 
-if (day > 31) {
-    month = +month + 1;
-}
+const tomorrow = new Date(today)
+const yesterday = new Date(today);
 
-if (month > 12) {
-    year = +year + 1
-}
+yesterday.setDate(today.getDate() - 1);
+tomorrow.setDate(tomorrow.getDate() + 1)
 
-previousDay = day - 1;
-nextDay = +day + 1;
-
-previousMonth = month - 1;
-nextMonth = +month + 1;
-
-previousYear = year - 1;
-nextYear = +year + 1;
-
-// new Date()
-
-alert('Previous date ' + previousDay + '.' + previousMonth + '.' + previousYear);
-alert('Next date ' + nextDay + '.' + nextMonth + '.' + nextYear);
+alert(tomorrow);
+alert(yesterday);

@@ -7,8 +7,7 @@ let tens = ['', '', 'двадцять', 'тридцять', 'сорок', "п'я
 
 let numString = num.toString();
 
-
-let aaa = '';
+let end = '';
 switch (num % 10) {
     case 0:
     case 5:
@@ -16,24 +15,23 @@ switch (num % 10) {
     case 7:
     case 8:
     case 9:
-        aaa = "років.";
+        end = "років.";
         break;
     case 1:
-        aaa = "рік.";
+        end = "рік.";
         break;
     case 2:
     case 3:
     case 4:
-        aaa = "роки.";
+        end = "роки.";
         break;
 }
 
-
 //the case of 1 - 20
 if (num < 20) {
-    alert(ones[num] + ' ' + aaa);
+    alert(ones[num] + ' ' + end);
 }
 
 if (numString.length === 2) {
-    alert(tens[numString[0]] + ' ' + ones[numString[1]] + ' ' + aaa);
+    alert(tens[numString[0]] + ' ' + ones[numString[1]] + ' ' + end);
 }
