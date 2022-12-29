@@ -31,6 +31,67 @@ backgroundColor у background-color
 
 5. У тексті замінити всі формати дат рррр/мм/дд на формат дд.мм.рррр. Текст може бути як завгодно великий
 <p><a href="string5/index.html">Fifth task</a></p>
+<hr>
+
+1. В об’єкті є властивість <b>className</b>, яка містить список «класів» (слів, розділених пробілами):
+<pre>
+let obj = {
+className: 'open menu'
+}
+</pre>
+Створіть функцію <b>addClass(obj, cls)</b>, яка додає у список класів клас cls, але тільки,
+якщо його там немає:
+<pre>
+addClass(obj, 'new');   // obj.className='open menu new'
+addClass(obj, 'open');  // без змін (клас вже існує)
+addClass(obj, 'me');    // obj.className='open menu new me'
+
+alert( obj.className ); // "open menu new me"
+</pre>
+Функція <b>addClass</b> не повинна додавати зайвих пробілів..
+У тексті замінити всі формати дат рррр/мм/дд на формат дд.мм.рррр.
+Текст може бути як завгодно великий
+<p><a href="object1/index.html">First task</a></p>
+
+2. Об’єкт має властивість <b>className</b>, яка зберігає список «класів» – слів, розділених пробілами:
+<pre>
+let obj = {
+  className: 'open menu'
+};
+</pre>
+Напишіть функцію <b>removeClass(obj, cls)</b>, яка видаляє клас <b>cls</b>, якщо він є:
+<pre>
+removeClass(obj, 'open');   // obj.className='menu'
+removeClass(obj, 'blabla'); // без змін (такого класу немає)
+</pre>
+Функція повинна коректно обробляти дублювання класу в рядку:
+<pre>
+    obj = {
+    className: 'my menu menu'
+};
+removeClass(obj, 'menu');
+alert( obj.className ); // 'my'
+</pre>
+<p><a href="object2/index.html">Second task</a></p>
+
+3. За допомогою конструктора об'єктів створити 3 об'єкти, які будуть містити такі поля:
+<pre>
+1) Кличку собаки
+2) Породу
+3) Bік
+</pre>
+
+Створити метод, за допомогою якого собаки будуть говорити:
+
+<pre>
+1) Тяф - якщо вік собаки менше року
+2) Гав - якщо вік собаки від року до 3
+3) Ррр-якщо вік собаки більше 3 років
+</pre>
+Продемонструвати роботу метода
+
+<p><a href="object3/index.html">Third task</a></p>
+<hr>
 
 </body>
 </html>
