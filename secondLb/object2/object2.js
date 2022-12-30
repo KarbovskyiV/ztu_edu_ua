@@ -5,7 +5,6 @@ let obj = {
 function removeClass(obj, cls) {
     let classes = obj.className ? obj.className.split(' ') : [];
 
-    // debug, don't understand
     while (classes.indexOf(cls) !== -1) {
         for (let i = 0; i < classes.length; i++) {
             if (classes[i] === cls) {

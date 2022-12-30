@@ -7,7 +7,6 @@ function addClass(obj, cls) {
     let check = false;
     let oldClass = obj.className ? obj.className.split(' ') : [];
 
-    // debug, don't understand
     for (let i = 0; i < oldClass.length; i++) {
         if (cls == oldClass[i]) {
             check = true;
