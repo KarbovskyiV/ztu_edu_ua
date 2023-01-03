@@ -14,7 +14,6 @@
 </style>
 <form action="">
     <button type="submit">Кинути кубик для 2-ох</button>
-<!--    <input type="submit" name="kubik2" value="Кинути кубик для 2-ох">-->
 </form>
 <br>
 <?php

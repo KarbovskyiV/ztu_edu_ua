@@ -48,13 +48,16 @@
     <button>Convert</button>
 </form>
 <?php
-$hryvnia = $_GET['hryvnia'] ?? null;
 
-// add check like 'if not'
-$dollar = 37.0;
+if (!isset($_GET['hryvnia'])) {
+    $hryvnia = null;
+} else {
+    $hryvnia = $_GET['hryvnia'];
+    $dollar = 37.0;
 
+    echo $hryvnia . ' грн. можна обміняти на ' . round($hryvnia / $dollar, 2) . ' долар';
+}
 
-echo $hryvnia ? $hryvnia . ' грн. можна обміняти на ' . round($hryvnia / $dollar, 2) . ' долар' : null;
 ?>
 
 <p><a href="numAdd.php">Додати тризначне число</a></p>
