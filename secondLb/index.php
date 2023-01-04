@@ -12,23 +12,34 @@
 </head>
 <body>
 <?php
-//error_reporting(512);
-$x = $_GET['x'];
-$y = $_GET['y'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $x = $_POST['x'];
+    $y = $_POST['y'];
 
-// add checks or perevedy v tip
-
-$pow = $x ** $y;
-$factorial = array_product(range(1, $x));
-$sinX = sin($x);
-$cosX = cos($x);
-$tgX = tan($x);
-$sum = $x + $y;
-$subtract = $x - $y;
-$multiply = $x * $y;
-$divide = $x / $y;
-$avg = $sum / 2;
-
+    $pow = $x ** $y;
+    $factorial = array_product(range(1, $x));
+    $sinX = sin($x);
+    $cosX = cos($x);
+    $tgX = tan($x);
+    $sum = $x + $y;
+    $subtract = $x - $y;
+    $multiply = $x * $y;
+    $divide = $x / $y;
+    $avg = $sum / 2;
+} else {
+    $x = null;
+    $y = null;
+    $pow = null;
+    $factorial = null;
+    $tgX = null;
+    $sinX = null;
+    $cosX = null;
+    $sum = null;
+    $subtract = null;
+    $multiply = null;
+    $divide = null;
+    $avg = null;
+}
 ?>
 
 <p>1) Створіть за допомогою власних функцій таблицю обчислень. Дані вводьте за допомогою форми, де sin, cos, tg
@@ -53,7 +64,7 @@ $avg = $sum / 2;
     </thead>
     <tbody>
     <tr>
-        <td><?= $pow ?></td>
+        <td><?= $pow ?? null ?></td>
         <td><?= $factorial ?></td>
         <td><?= $tgX ?></td>
         <td><?= $sinX ?></td>
@@ -68,7 +79,7 @@ $avg = $sum / 2;
     </tbody>
 </table>
 
-<form action="" method="get">
+<form action="" method="post">
     <div class="container px-4">
         <div class="row gx-5">
             <div class="col">

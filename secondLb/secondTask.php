@@ -9,14 +9,11 @@
 </head>
 <body>
 <?php
-error_reporting(512);
+$rows = $_GET['rows'] ?? null;
+$cols = $_GET['cols'] ?? null;
+$squares = $_GET['square'] ?? null;
 
-$rows = $_GET['rows'];
-$cols = $_GET['cols'];
-$squares = $_GET['square'];
-
-
-function createTable(int $rows, int $cols)
+function createTable(int $rows, int $cols): void
 {
     for ($tr = 1; $tr <= $rows; $tr++) {
         echo "<table  border='1' align='center' width='250'>\n";
@@ -33,7 +30,7 @@ function createTable(int $rows, int $cols)
     echo "</table>";
 }
 
-function randSquares(int $amount)
+function randSquares(int $amount): void
 {
     for ($i = 1; $i <= 30; $i++) {
         $a = rand(0, 500);
@@ -41,7 +38,6 @@ function randSquares(int $amount)
         echo "<div style=\"width: {$a}px; height: {$b}px; top:{$a}px; left:{$a}px; position: absolute; border: 4px solid dimgrey; background-color: red\"></div>";
     }
 }
-
 
 ?>
 <p>Enter the table size</p>
