@@ -59,8 +59,7 @@ $nowYear = $_POST['year'] ?? date('Y');
             'Грудень',
         ];
         ?>
-        <?php
-        for ($month = 1; $month <= 12; $month++) : ?>
+        <?php for ($month = 1; $month <= 12; $month++) : ?>
             <?php
 
             if ($nowMonth == $month) {
@@ -70,8 +69,7 @@ $nowYear = $_POST['year'] ?? date('Y');
             }
             ?>
             <option <?= $select ?> value="<?= $month ?>"><?= $months[$month - 1] ?></option>
-        <?php
-        endfor; ?>
+        <?php endfor; ?>
     </select>
 
     <select name="year">
@@ -86,8 +84,7 @@ $nowYear = $_POST['year'] ?? date('Y');
             }
             ?>
             <option <?= $select ?> value="<?= $year ?>"><?= $year ?></option>
-        <?php
-        endfor; ?>
+        <?php endfor; ?>
     </select>
     <button type="submit">Send</button>
 </form>
