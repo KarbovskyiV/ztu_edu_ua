@@ -25,9 +25,9 @@ if (!isset($_GET['text'], $_GET['search'], $_GET['replace'])) {
 if (!isset($_GET['city'])) {
     $sorted = null;
 } else {
-    if (!is_numeric($_GET['city'])) {
-        $city = $_GET['city'];
-
+    // remove duplicate whitespaces
+    $city = $_GET['city'];
+    if (!is_numeric($city)) {
         $array = explode(' ', $city);
         asort($array);
         $sorted = implode(", ", $array);

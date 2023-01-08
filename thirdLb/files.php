@@ -26,6 +26,8 @@ $comment = $_POST['comment'] ?? null;
 if ($name && $comment) {
     $file = fopen("comments.txt", "a+");
 
+    // check on false (for file php func's)
+
     fwrite($file, "\n $name: $comment \n");
     fclose($file);
 
@@ -72,6 +74,7 @@ if ($name && $comment) {
 <?php
 $words = file('words.txt', FILE_SKIP_EMPTY_LINES);
 
+// check on array element
 $array = explode(' ', $words[0]);
 asort($array);
 $sorted = implode(", ", $array);
