@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<!-- add all possible options to array and check is value from cookie is exist. -->
 <div class="block <?= $_COOKIE['font'] ?>">
     Test
 </div>

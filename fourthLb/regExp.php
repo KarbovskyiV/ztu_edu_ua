@@ -30,19 +30,27 @@
 </form>
 
 <?php
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    // Шо тут писать???
-    echo '';
-} else {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $address = $_POST['address'] ?? null;
     $pattern = "/^(https:|http:|www\.)\S*/";
 
     $replace = preg_replace($pattern, "«тут була адреса сайту»", (array($address)));
 
+    // remove all empty rows in array
+    // update keys in array
+    // get 0 element, but add check on zero element
+    // limit -1 at preg_replace
+
     $matches = [];
+    // render all matches
     $matchSite = preg_match_all($pattern, $address, $matches, PREG_PATTERN_ORDER);
 
+    // isset or try..catch
     echo '<p>', $replace[0], '</p>';
+
+//    if(!isset($matches[0][0])) {
+//        exit;
+//    }
     echo '<p>', $matches[0][0], '</p>';
 }
 ?>

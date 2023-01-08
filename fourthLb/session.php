@@ -6,7 +6,9 @@ $login = 'Admin';
 $pass = 'password';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // add check on $_POST['login']
     if ($_POST['login'] === $login && $_POST['pass'] === $pass) {
+        // session_start(); should be here
         $_SESSION['admin'] = $login;
         $_SESSION['pass'] = $pass;
         $_SESSION['res'] = 'Добрий день, Admin!';
@@ -53,6 +55,7 @@ if (isset ($_POST['exit'])) {
     die();
 }
 
+// check is autentificated, if no - form ...
 if (isset ($_SESSION ['res'])) {
     echo '<p>', $_SESSION ['res'], '</p>';
 }
