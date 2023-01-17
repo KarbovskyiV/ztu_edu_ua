@@ -32,9 +32,20 @@ class Student extends Human
     {
         return $this->course++;
     }
+
+    public function messageBorn(): string
+    {
+        return 'Dear student... ';
+    }
+
+    public function childBorn()
+    {
+       return $this->messageBorn();
+    }
 }
 
 $var = new Student();
 $var->setCourse(1);
 $var->nextCourse();
-var_dump($var);
+echo $var->childBorn();
+//var_dump($var);

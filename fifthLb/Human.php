@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class Human
+abstract class Human
 {
     protected $height, $weight, $age;
 
@@ -35,4 +35,11 @@ class Human
     {
         $this->age = $age;
     }
+
+    protected function messageBorn(): string
+    {
+        return 'The child was born';
+    }
+
+    abstract public function childBorn();
 }

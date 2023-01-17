@@ -34,6 +34,16 @@ class Programmer extends Human
         $this->programLanguage = $name;
         return array_pop($name);
     }
+
+    public function messageBorn(): string
+    {
+        return 'Dear programmer... ';
+    }
+
+    public function childBorn()
+    {
+        return $this->messageBorn();
+    }
 }
 
 $var = new Programmer();
@@ -41,4 +51,5 @@ $var = new Programmer();
 //    'PHP',
 //    'C++',
 //]);
+//echo $var->childBorn();
 //var_dump($var->getProgramLanguage());
