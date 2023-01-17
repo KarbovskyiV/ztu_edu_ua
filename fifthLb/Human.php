@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-abstract class Human
+include "cleanHouse.php";
+abstract class Human implements cleanHouse
 {
     protected $height, $weight, $age;
 

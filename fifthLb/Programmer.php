@@ -44,6 +44,16 @@ class Programmer extends Human
     {
         return $this->messageBorn();
     }
+
+    function cleanRoom()
+    {
+        return '«Програміст прибирає кімнату»';
+    }
+
+    function cleanKitchen()
+    {
+        return '«Програміст прибирає кухню»';
+    }
 }
 
 $var = new Programmer();
@@ -52,4 +62,5 @@ $var = new Programmer();
 //    'C++',
 //]);
 //echo $var->childBorn();
+//echo $var->cleanKitchen();
 //var_dump($var->getProgramLanguage());

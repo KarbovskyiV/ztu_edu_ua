@@ -40,12 +40,23 @@ class Student extends Human
 
     public function childBorn()
     {
-       return $this->messageBorn();
+        return $this->messageBorn();
+    }
+
+    function cleanRoom()
+    {
+        return '«Студент прибирає кімнату»';
+    }
+
+    function cleanKitchen()
+    {
+        return '«Студент прибирає кухню»';
     }
 }
 
 $var = new Student();
 $var->setCourse(1);
 $var->nextCourse();
-echo $var->childBorn();
+//echo $var->childBorn();
+//echo $var->cleanKitchen();
 //var_dump($var);
