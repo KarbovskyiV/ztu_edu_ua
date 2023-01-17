@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 class Circle
 {
-    public $coordOfCenter, $radius;
+    private $coordOfCenter, $radius;
 
-    public function __construct(protected int $first, protected int $second, protected int $third)
+    public function __construct(private int $first, private int $second, private int $third)
     {
     }
 
@@ -45,7 +45,11 @@ class Circle
         $this->third = $third;
     }
 
+    public function test(): bool
+    {
+        return $this->first === $this->second && $this->first === $this->third;
+    }
 }
 
-$var = new Circle(5, 5, 10);
-var_dump($var);
+$var = new Circle(5, 10, 5);
+//var_dump($var->test());
