@@ -7,85 +7,224 @@ declare(strict_types=1);
  */
 class Date
 {
-    protected $date;
+    protected false|DateTime $date;
 
+    /**
+     * If the date is not transferred - let the current one be taken
+     */
     public function __construct($date = null)
     {
-//        if (is_null($date)) {
-//            $this->date = date('Y-m-d');
-//        } else {
-//            $this->date = $date;
-//        }
-        // if the date is not transferred - let the current one be taken
+        if (is_null($date)) {
+            $this->date = date_create();
+        } else {
+            $this->date = date_create($date);
+        }
     }
 
-    public function getDay()
+    /**
+     * Return day
+     * @return string
+     */
+    public function getDay(): string
     {
-//        return date('d', strtotime($this->date));
-        // return day
+        return $this->date->format('d');
     }
 
-    public function getMonth($lang = null)
+    /**
+     * Return month, accept 'ua' or 'en',
+     * @param null $lang
+     * @return string
+     */
+    public function getMonth($lang = null): string
     {
-//        return date('m', strtotime($this->date));
-        // возвращает месяц
+        if (is_null($lang)) {
+            return $this->date->format('m');
+        }
 
-        // переменная $lang может принимать значение ua или en
-        // если эта не пуста - пусть месяц будет словом на заданном языке
+        $lang = strtolower($lang);
+        $match = $this->date->format('m');
+
+        if ($lang === 'ua') {
+            echo match ((int)$match) {
+                1 => 'січень',
+                2 => 'лютий',
+                3 => 'березень',
+                4 => 'квітень',
+                5 => 'травень',
+                6 => 'червень',
+                7 => 'липень',
+                8 => 'серпень',
+                9 => 'вересень',
+                10 => 'жовтень',
+                11 => 'листопад',
+                12 => 'грудень',
+                default => null,
+            };
+        } elseif ($lang === 'en') {
+            echo match ((int)$match) {
+                1 => 'january',
+                2 => 'february',
+                3 => 'march',
+                4 => 'april',
+                5 => 'may',
+                6 => 'june',
+                7 => 'july',
+                8 => 'august',
+                9 => 'september',
+                10 => 'october',
+                11 => 'november',
+                12 => 'december',
+                default => null,
+            };
+        } else {
+            echo 'The specified language is not available';
+        }
     }
 
-    public function getYear()
+    /**
+     * Return year
+     * @return string
+     */
+    public function getYear(): string
     {
-//        return date('Y', strtotime($this->date));
-        // return year
+        return $this->date->format('Y');
     }
 
+    /**
+     * Return day of week, accept 'ua' or 'en'
+     * @param null $lang
+     * @return string|void
+     */
     public function getWeekDay($lang = null)
     {
-        // возвращает день недели
+        if (is_null($lang)) {
+            return $this->date->format('N');
+        }
 
-        // переменная $lang может принимать значение ru или en
-        // если эта не пуста - пусть день будет словом на заданном языке
+        $lang = strtolower($lang);
+        $match = $this->date->format('N');
+
+        if ($lang === 'ua') {
+            echo match ((int)$match) {
+                1 => 'понеділок',
+                2 => 'вівторок',
+                3 => 'середа',
+                4 => 'четверг',
+                5 => "п'ятниця",
+                6 => 'суббота',
+                7 => 'неділя',
+                default => null,
+            };
+        } elseif ($lang === 'en') {
+            echo match ((int)$match) {
+                1 => 'monday',
+                2 => 'tuesday',
+                3 => 'wednesday',
+                4 => 'thursday',
+                5 => 'friday',
+                6 => 'saturday',
+                7 => 'sunday',
+                default => null,
+            };
+        } else {
+            echo 'The specified language is not available';
+        }
     }
 
-    public function addDay($value)
+    /**
+     * Add value to day
+     * @param $value
+     * @return Date
+     */
+    public function addDay($value): Date
     {
-        // добавляет значение $value к дню
+        date_modify($this->date, "+$value day");
+        date_format($this->date, "Y-m-d");
+        return $this;
     }
 
-    public function subDay($value)
+    /**
+     * Subtracts value from the day
+     * @param $value
+     * @return Date
+     */
+    public function subDay($value): Date
     {
-        // отнимает значение $value от дня
+        date_modify($this->date, "-$value day");
+        date_format($this->date, "Y-m-d");
+        return $this;
     }
 
-    public function addMonth($value)
+    /**
+     * Add value to month
+     * @param $value
+     * @return Date
+     */
+    public function addMonth($value): Date
     {
-        // добавляет значение $value к месяцу
+        $dt = $this->date;
+        $day = $dt->format('j');
+        $dt->modify("first day of +$value month");
+        $dt->modify('+' . (min($day, $dt->format('t')) - 1) . ' days');
+        $dt->format('Y-m-d');
+        return $this;
     }
 
-    public function subMonth($value)
+    /**
+     * Subtracts value from the month
+     * @param $value
+     * @return Date
+     */
+    public function subMonth($value): Date
     {
-        // отнимает значение $value от месяца
+        $dt = $this->date;
+        $day = $dt->format('j');
+        $dt->modify("first day of -$value month");
+        $dt->modify('+' . (min($day, $dt->format('t')) - 1) . ' days');
+        $dt->format('Y-m-d');
+        return $this;
     }
 
-    public function addYear($value)
+    /**
+     * Add value to year
+     * @param $value
+     * @return Date
+     */
+    public function addYear($value): Date
     {
-        // добавляет значение $value к году
+        date_modify($this->date, "+$value year");
+        date_format($this->date, "Y-m-d");
+        return $this;
     }
 
-    public function subYear($value)
+    /**
+     * Subtracts value from the year
+     * @param $value
+     * @return Date
+     */
+    public function subYear($value): Date
     {
-        // отнимает значение $value от года
+        date_modify($this->date, "-$value year");
+        date_format($this->date, "Y-m-d");
+        return $this;
     }
 
-    public function format($format)
+    /**
+     * Return data in specified format
+     * @param $format
+     * @return string
+     */
+    public function format($format): string
     {
-        // выведет дату в указанном формате
-        // формат пусть будет такой же, как в функции date
+        return date_format($this->date, $format);
     }
 
+    /**
+     * Echo data in 'year-month-day' format
+     * @return string
+     */
     public function __toString()
     {
-        // выведет дату в формате 'год-месяц-день'
+        return date_format($this->date, 'Y-m-d');
     }
 }
