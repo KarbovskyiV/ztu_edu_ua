@@ -7,8 +7,8 @@ declare(strict_types=1);
  */
 class Tag
 {
-    private $name;
-    private $attrs = [];
+    private string $name;
+    private array $attrs = [];
 
     public function __construct($name)
     {
@@ -24,6 +24,19 @@ class Tag
     public function setAttr($name, $value): self
     {
         $this->attrs[$name] = $value;
+        return $this;
+    }
+
+    /**
+     * Adding many attributes to tag with value
+     * @param $attrs
+     * @return $this
+     */
+    public function setAttrs($attrs): self
+    {
+        foreach ($attrs as $name => $value) {
+            $this->setAttr($name, $value);
+        }
         return $this;
     }
 
