@@ -16,7 +16,7 @@ class Tag
     }
 
     /**
-     * Adding attribute to tag with value
+     * Adding attribute to tag with or without value
      * @param $name
      * @param $value
      * @return $this
@@ -52,6 +52,46 @@ class Tag
     }
 
     /**
+     * Adding class to tag
+     * @param $className
+     * @return $this
+     */
+    public function addClass($className): self
+    {
+        if (isset($this->attrs['class'])) {
+            $classNames = explode(' ', $this->attrs['class']);
+
+            if (!in_array($className, $classNames)) {
+                $classNames[] = $className;
+                $this->attrs['class'] = implode(' ', $classNames);
+            }
+        } else {
+            $this->attrs['class'] = $className;
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove class from tag
+     * @param $className
+     * @return $this
+     */
+    public function removeClass($className): \Tag
+    {
+        if (isset($this->attrs['class'])) {
+            $classNames = explode(' ', $this->attrs['class']);
+
+            if (in_array($className, $classNames)) {
+                $classNames = $this->removeElem($className, $classNames);
+                $this->attrs['class'] = implode(' ', $classNames);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * Adding attribute to tag
      * @param $attrs
      * @return string
@@ -73,6 +113,14 @@ class Tag
         } else {
             return '';
         }
+    }
+
+    private function removeElem($elem, $arr)
+    {
+        $key = array_search($elem, $arr);
+        array_splice($arr, $key, 1);
+
+        return $arr;
     }
 
     /**

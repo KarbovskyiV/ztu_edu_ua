@@ -81,8 +81,24 @@ include 'Classes/File.php';
 //    ->setAttrs(['id' => 'test', 'class' => 'eee'])
 //    ->open();
 
-$tag = new Tag('input');
-echo $tag
-    ->setAttr('id', 'test')
-    ->setAttr('disabled', true)
-    ->open(); // выведет <input id="test" disabled>
+//$tag = new Tag('input');
+//echo $tag
+//    ->setAttr('id', 'test')
+//    ->setAttr('disabled', true)
+//    ->open();
+
+// щоб не створювати змінні виводим таким чином
+//echo (new Tag('input'))
+//    ->setAttr('name', 'name1')
+//    ->open();
+//
+//echo (new Tag('input'))
+//    ->addClass('eee')
+//    ->addClass('bbb')
+//    ->addClass('eee')
+//    ->open();
+
+//echo (new Tag('input'))
+//    ->setAttr('class', 'eee aaa kkk')
+//    ->removeClass('aaa')
+//    ->open();
