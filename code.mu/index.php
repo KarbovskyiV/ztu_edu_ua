@@ -54,13 +54,25 @@ $file = new File('text.txt');
 
 
 // Tag
-$input = new Tag('input');
-echo $input->open();
-$tag = new Tag('div');
-echo $tag->open() . 'text' . $tag->close();
-$img = new Tag('img');
-echo $img->open();
-$header = new Tag('header');
-echo $header->open() . 'Site header' . $header->close();
-$tag = new Tag('input', ['id' => 'test', 'class' => 'eee bbb']);
-echo $tag->open(); // выведет <input id="test" class="eee bbb">
+//$input = new Tag('input');
+//echo $input->open();
+//
+//$tag = new Tag('div');
+//echo $tag->open() . 'text' . $tag->close();
+//
+//$img = new Tag('img');
+//echo $img->open();
+//
+//$header = new Tag('header');
+//echo $header->open() . 'Site header' . $header->close();
+
+$tag2 = new Tag('input');
+echo $tag2
+    ->setAttr('id', 'test')
+    ->removeAttr('id')
+    ->open();
+
+//$tag3 = new Tag('div');
+//echo $tag3->setAttr('id', 'test')->open();
+//echo $tag3->close();
+

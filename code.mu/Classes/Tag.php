@@ -8,12 +8,34 @@ declare(strict_types=1);
 class Tag
 {
     private $name;
-    private $attrs;
+    private $attrs = [];
 
-    public function __construct($name, $attrs = [])
+    public function __construct($name)
     {
         $this->name = $name;
-        $this->attrs = $attrs;
+    }
+
+    /**
+     * Adding attribute to tag with value
+     * @param $name
+     * @param $value
+     * @return $this
+     */
+    public function setAttr($name, $value): self
+    {
+        $this->attrs[$name] = $value;
+        return $this;
+    }
+
+    /**
+     * Remove parameter from attribute
+     * @param $name
+     * @return $this
+     */
+    public function removeAttr($name): self
+    {
+        $this->attrs[$name] = '';
+        return $this;
     }
 
     /**
@@ -58,4 +80,3 @@ class Tag
         return "</$name>";
     }
 }
-
