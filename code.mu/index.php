@@ -76,8 +76,13 @@ include 'Classes/File.php';
 //echo $tag3->setAttr('id', 'test')->open();
 //echo $tag3->close();
 
-$tag = new Tag('input');
+//$tag = new Tag('input');
+//echo $tag
+//    ->setAttrs(['id' => 'test', 'class' => 'eee'])
+//    ->open();
 
+$tag = new Tag('input');
 echo $tag
-    ->setAttrs(['id' => 'test', 'class' => 'eee'])
-    ->open();
+    ->setAttr('id', 'test')
+    ->setAttr('disabled', true)
+    ->open(); // выведет <input id="test" disabled>

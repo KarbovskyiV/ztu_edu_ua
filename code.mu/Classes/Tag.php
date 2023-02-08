@@ -21,7 +21,7 @@ class Tag
      * @param $value
      * @return $this
      */
-    public function setAttr($name, $value): self
+    public function setAttr($name, $value = true): self
     {
         $this->attrs[$name] = $value;
         return $this;
@@ -62,7 +62,11 @@ class Tag
             $result = '';
 
             foreach ($attrs as $name => $value) {
-                $result .= " $name=\"$value\"";
+                if ($value === true) {
+                    $result .= " $name";
+                } else {
+                    $result .= " $name=\"$value\"";
+                }
             }
 
             return $result;
