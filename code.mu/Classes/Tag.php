@@ -7,15 +7,33 @@ declare(strict_types=1);
  */
 class Tag
 {
-    /**
-     * Property tag name
-     * @var $name
-     */
     private $name;
+    private $attrs;
 
-    public function __construct($name)
+    public function __construct($name, $attrs = [])
     {
         $this->name = $name;
+        $this->attrs = $attrs;
+    }
+
+    /**
+     * Adding attribute to tag
+     * @param $attrs
+     * @return string
+     */
+    private function getAttrsStr($attrs): string
+    {
+        if (!empty($attrs)) {
+            $result = '';
+
+            foreach ($attrs as $name => $value) {
+                $result .= " $name=\"$value\"";
+            }
+
+            return $result;
+        } else {
+            return '';
+        }
     }
 
     /**
@@ -25,7 +43,9 @@ class Tag
     public function open(): string
     {
         $name = $this->name;
-        return "<$name>";
+        $attrsStr = $this->getAttrsStr($this->attrs);
+
+        return "<$name$attrsStr>";
     }
 
     /**

@@ -62,3 +62,5 @@ $img = new Tag('img');
 echo $img->open();
 $header = new Tag('header');
 echo $header->open() . 'Site header' . $header->close();
+$tag = new Tag('input', ['id' => 'test', 'class' => 'eee bbb']);
+echo $tag->open(); // выведет <input id="test" class="eee bbb">
