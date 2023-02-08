@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 include './Interfaces/iFile.php';
 
+/**
+ * Class for work with files
+ */
 class File implements iFile
 {
 

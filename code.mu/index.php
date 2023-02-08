@@ -50,15 +50,15 @@ $file = new File('text.txt');
 //echo $file->copy('.test');
 //echo $file->delete();
 //echo $file->rename('text.txt');
-echo $file->replace('F:\OSPanel\domains\ztu.edu\code.mu\files');
+//echo $file->replace('F:\OSPanel\domains\ztu.edu\code.mu\files');
 
 
 // Tag
-//$input = new Tag('input');
-//echo $input->open();
-//$tag = new Tag('div');
-//echo $tag->open() . 'text' . $tag->close();
-//$img = new Tag('img');
-//echo $img->open();
-//$header = new Tag('header');
-//echo $header->open() . 'Site header' . $header->close();
+$input = new Tag('input');
+echo $input->open();
+$tag = new Tag('div');
+echo $tag->open() . 'text' . $tag->close();
+$img = new Tag('img');
+echo $img->open();
+$header = new Tag('header');
+echo $header->open() . 'Site header' . $header->close();
