@@ -5,6 +5,7 @@ include 'Classes/Date.php';
 include 'Classes/Interval.php';
 include 'Classes/Tag.php';
 include 'Classes/File.php';
+include 'Classes/Image.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -102,3 +103,11 @@ include 'Classes/File.php';
 //    ->setAttr('class', 'eee aaa kkk')
 //    ->removeClass('aaa')
 //    ->open();
+
+//$image = new Tag('img');
+
+//echo (new Image())->setAttrs(['src' => '/img.png', 'width' => '300' , 'height' => '200'])->open();
+
+//$image = (new Image())->setAttr('src', '/img.png');
+//$image->setAttr('width', '200');
+//echo $image;
