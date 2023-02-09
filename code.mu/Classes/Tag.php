@@ -2,17 +2,98 @@
 
 declare(strict_types=1);
 
+include './Interfaces/iTag.php';
+
 /**
  * Class for dynamic formatting tags with HTML.
  */
-class Tag
+class Tag implements iTag
 {
     private string $name;
+    private string $text = '';
     private array $attrs = [];
 
     public function __construct($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * Get tag name
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @inheritDoc
+     * @return string
+     */
+    public function getText(): string
+    {
+        return $this->text;
+    }
+
+    /**
+     * @inheritDoc
+     * @return array
+     */
+    public function getAttrs(): array
+    {
+        return $this->attrs;
+    }
+
+    /**
+     * @inheritDoc
+     * @param $name
+     */
+    public function getAttr($name)
+    {
+        return $this->attrs[$name] ?? null;
+    }
+
+    /**
+     * @inheritDoc
+     * @return string
+     */
+    public function show(): string
+    {
+        return $this->open() . $this->text . $this->close();
+    }
+
+    /**
+     * Echoing opened part of tag
+     * @return string
+     */
+    public function open(): string
+    {
+        $name = $this->name;
+        $attrsStr = $this->getAttrsStr($this->attrs);
+
+        return "<$name$attrsStr>";
+    }
+
+    /**
+     * Echoing closed part of tag
+     * @return string
+     */
+    public function close(): string
+    {
+        $name = $this->name;
+        return "</$name>";
+    }
+
+    /**
+     * @inheritDoc
+     * @param $text
+     * @return Tag
+     */
+    public function setText($text): self
+    {
+        $this->text = $text;
+        return $this;
     }
 
     /**
@@ -47,7 +128,7 @@ class Tag
      */
     public function removeAttr($name): self
     {
-        $this->attrs[$name] = '';
+        unset($this->attrs[$name]);
         return $this;
     }
 
@@ -115,33 +196,16 @@ class Tag
         }
     }
 
+    /**
+     * Remove one element from tag
+     * @param $elem
+     * @param $arr
+     */
     private function removeElem($elem, $arr)
     {
         $key = array_search($elem, $arr);
         array_splice($arr, $key, 1);
 
         return $arr;
-    }
-
-    /**
-     * Echoing opened part of tag
-     * @return string
-     */
-    public function open(): string
-    {
-        $name = $this->name;
-        $attrsStr = $this->getAttrsStr($this->attrs);
-
-        return "<$name$attrsStr>";
-    }
-
-    /**
-     * Echoing closed part of tag
-     * @return string
-     */
-    public function close(): string
-    {
-        $name = $this->name;
-        return "</$name>";
     }
 }
