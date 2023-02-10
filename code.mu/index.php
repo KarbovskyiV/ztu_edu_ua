@@ -6,6 +6,10 @@ include 'Classes/Interval.php';
 include 'Classes/Tag.php';
 include 'Classes/File.php';
 include 'Classes/Image.php';
+include 'Classes/HtmlList.php';
+include 'Classes/ListItem.php';
+include 'Classes/ULHtml.php';
+include 'Classes/OLHtml.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -111,3 +115,24 @@ include 'Classes/Image.php';
 //$image = (new Image())->setAttr('src', '/img.png');
 //$image->setAttr('width', '200');
 //echo $image;
+
+//$list = new HtmlList('ul');
+//
+//echo $list
+//    ->addItem((new ListItem())->setText('item1'))
+//    ->addItem((new ListItem())->setText('item2'))
+//    ->addItem((new ListItem())->setText('item3'))
+//    ->show();
+
+//$ul = new ULHtml;
+//$ol = new OLHtml;
+//
+//echo $ul
+//    ->addItem((new ListItem())->setText('item1'))
+//    ->addItem((new ListItem())->setText('item2'))
+//    ->addItem((new ListItem())->setText('item3'));
+//
+//echo $ol
+//    ->addItem((new ListItem())->setText('item1'))
+//    ->addItem((new ListItem())->setText('item2'))
+//    ->addItem((new ListItem())->setText('item3'));
