@@ -16,6 +16,10 @@ class Link extends Tag
         parent::__construct('a');
     }
 
+    /**
+     * @inheritDoc
+     * @return string
+     */
     public function open(): string
     {
         $this->activateSelf();

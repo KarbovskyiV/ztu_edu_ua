@@ -9,6 +9,11 @@ class Input extends Tag
         parent::__construct('input');
     }
 
+    /**
+     * @inheritDoc
+     * Value of input don't disappear
+     * @return string
+     */
     public function open(): string
     {
         $inputName = $this->getAttr('name');
@@ -22,6 +27,10 @@ class Input extends Tag
         return parent::open();
     }
 
+    /**
+     * Automatically call open tag
+     * @return string
+     */
     public function __toString(): string
     {
         return $this->open();
