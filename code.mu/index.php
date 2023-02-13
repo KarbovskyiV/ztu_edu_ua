@@ -18,6 +18,8 @@ include 'Classes/Hidden.php';
 include 'Classes/Textarea.php';
 include 'Classes/Checkbox.php';
 include 'Classes/Radio.php';
+include 'Classes/Select.php';
+include 'Classes/Option.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -180,13 +182,27 @@ include 'Classes/Radio.php';
 //echo new Submit;
 //echo $form->close();
 
+//$form = (new Form)->setAttrs([
+//    'action' => '',
+//    'method' => 'GET'
+//]);
+//echo $form->open();
+//echo (new Checkbox)->setAttr('name', 'checkbox');
+//echo (new Radio)->setAttr('name', 'checkbox');
+//echo (new Input)->setAttr('name', 'user');
+//echo new Submit;
+//echo $form->close();
+
+
 $form = (new Form)->setAttrs([
     'action' => '',
     'method' => 'GET'
 ]);
 echo $form->open();
-echo (new Checkbox)->setAttr('name', 'checkbox');
-echo (new Radio)->setAttr('name', 'checkbox');
-echo (new Input)->setAttr('name', 'user');
+echo (new Select)
+    ->add((new Option())->setText('item1'))
+    ->add((new Option())->setText('item2')->setSelected())
+    ->add((new Option())->setText('item3'))
+    ->show();
 echo new Submit;
 echo $form->close();
