@@ -15,6 +15,7 @@ include 'Classes/Input.php';
 include 'Classes/Submit.php';
 include 'Classes/Password.php';
 include 'Classes/Hidden.php';
+include 'Classes/Textarea.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -170,3 +171,10 @@ include 'Classes/Hidden.php';
 
 //echo new Hidden;
 
+$form = (new Form)->setAttrs(['action' => '', 'method' => 'GET']);
+
+echo $form->open();
+echo (new Input)->setAttr('name', 'user');
+echo (new Textarea)->setAttr('name', 'message')->show();
+echo new Submit;
+echo $form->close();
