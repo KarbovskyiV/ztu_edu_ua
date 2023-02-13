@@ -10,6 +10,7 @@ include 'Classes/HtmlList.php';
 include 'Classes/ListItem.php';
 include 'Classes/ULHtml.php';
 include 'Classes/OLHtml.php';
+include 'Classes/Form.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -136,3 +137,10 @@ include 'Classes/OLHtml.php';
 //    ->addItem((new ListItem())->setText('item1'))
 //    ->addItem((new ListItem())->setText('item2'))
 //    ->addItem((new ListItem())->setText('item3'));
+
+$form = (new Form)->setAttrs([
+    'action' => 'test.php',
+    'method' => 'POST'
+]);
+echo $form->open();
+echo $form->close();
