@@ -14,6 +14,7 @@ include 'Classes/Form.php';
 include 'Classes/Input.php';
 include 'Classes/Submit.php';
 include 'Classes/Password.php';
+include 'Classes/Hidden.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -165,12 +166,7 @@ include 'Classes/Password.php';
 //echo new Submit;
 //echo $form->close();
 
-$form = (new Form)->setAttrs([
-    'action' => 'test.php',
-    'method' => 'GET'
-]);
-echo $form->open();
-echo (new Input)->setAttr('name', 'login');
-echo (new Password)->setAttr('name', 'passw');
-echo new Submit;
-echo $form->close();
+//echo new Password;
+
+//echo new Hidden;
+
