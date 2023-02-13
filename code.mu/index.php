@@ -11,6 +11,7 @@ include 'Classes/ListItem.php';
 include 'Classes/ULHtml.php';
 include 'Classes/OLHtml.php';
 include 'Classes/Form.php';
+include 'Classes/Input.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -138,9 +139,22 @@ include 'Classes/Form.php';
 //    ->addItem((new ListItem())->setText('item2'))
 //    ->addItem((new ListItem())->setText('item3'));
 
-$form = (new Form)->setAttrs([
-    'action' => 'test.php',
-    'method' => 'POST'
-]);
-echo $form->open();
-echo $form->close();
+//$form = (new Form)->setAttrs([
+//    'action' => 'test.php',
+//    'method' => 'POST'
+//]);
+//echo $form->open();
+//echo $form->close();
+
+//$form = (new Form)->setAttrs(['action' => '', 'method' => 'GET']);
+//
+//echo $form->open();
+//echo (new Input)->setAttr('name', 'year');
+//echo (new Input)->setAttr('name', 'year');
+//echo (new Input)->setAttr('name', 'year');
+//echo (new Input)->setAttr('name', 'year');
+//echo (new Input)->setAttr('name', 'year');
+//echo (new Input)->setAttr('type', 'submit');
+//echo $_GET['year'] + $_GET['year2'] + $_GET['year3'] + $_GET['year4'] + $_GET['year5'];
+//echo $form->close();
+
