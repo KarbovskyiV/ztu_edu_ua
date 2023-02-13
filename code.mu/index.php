@@ -17,6 +17,7 @@ include 'Classes/Password.php';
 include 'Classes/Hidden.php';
 include 'Classes/Textarea.php';
 include 'Classes/Checkbox.php';
+include 'Classes/Radio.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -185,6 +186,7 @@ $form = (new Form)->setAttrs([
 ]);
 echo $form->open();
 echo (new Checkbox)->setAttr('name', 'checkbox');
+echo (new Radio)->setAttr('name', 'checkbox');
 echo (new Input)->setAttr('name', 'user');
 echo new Submit;
 echo $form->close();

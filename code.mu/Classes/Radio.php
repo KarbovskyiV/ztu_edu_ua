@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-class Checkbox extends Tag
+class Radio extends Tag
 {
     public function __construct()
     {
-        $this->setAttr('type', 'checkbox');
+        $this->setAttr('type', 'radio');
         $this->setAttr('value', 1);
         parent::__construct('input');
     }
