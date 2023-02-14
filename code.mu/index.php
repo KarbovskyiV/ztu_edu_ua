@@ -20,6 +20,7 @@ include 'Classes/Checkbox.php';
 include 'Classes/Radio.php';
 include 'Classes/Select.php';
 include 'Classes/Option.php';
+include 'Classes/TagHelper.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -193,16 +194,25 @@ include 'Classes/Option.php';
 //echo new Submit;
 //echo $form->close();
 
+//$form = (new Form)->setAttrs([
+//    'action' => '',
+//    'method' => 'GET'
+//]);
+//echo $form->open();
+//echo (new Select)
+//    ->add((new Option())->setText('item1'))
+//    ->add((new Option())->setText('item2')->setSelected())
+//    ->add((new Option())->setText('item3'))
+//    ->show();
+//echo new Submit;
+//echo $form->close();
 
-$form = (new Form)->setAttrs([
-    'action' => '',
-    'method' => 'GET'
-]);
-echo $form->open();
-echo (new Select)
-    ->add((new Option())->setText('item1'))
-    ->add((new Option())->setText('item2')->setSelected())
-    ->add((new Option())->setText('item3'))
-    ->show();
-echo new Submit;
-echo $form->close();
+//$th = new TagHelper();
+//echo $th->open('form', ['action' => 'test.php', 'method' => 'GET']);
+//echo $th->open('input', ['name' => 'year']);
+//echo $th->open('input', ['type' => 'submit']);
+//echo $th->close('form');
+//$th = new TagHelper();
+//echo $th->show('div', 'test');
+
+
