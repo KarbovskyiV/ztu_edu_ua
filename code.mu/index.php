@@ -23,6 +23,7 @@ include 'Classes/Option.php';
 include 'Classes/TagHelper.php';
 include 'Classes/FormHelper.php';
 include 'Classes/CookieShell.php';
+include 'Classes/SessionShell.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -229,3 +230,7 @@ include 'Classes/CookieShell.php';
 //$csh->del('test');
 //echo $csh->get('test');
 
+//$ses = new SessionShell;
+//$ses->set('test', 123);
+//echo $ses->get('test');
+//$ses->del('test');
