@@ -21,6 +21,7 @@ include 'Classes/Radio.php';
 include 'Classes/Select.php';
 include 'Classes/Option.php';
 include 'Classes/TagHelper.php';
+include 'Classes/FormHelper.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -215,4 +216,9 @@ include 'Classes/TagHelper.php';
 //$th = new TagHelper();
 //echo $th->show('div', 'test');
 
-
+//$fh = new FormHelper();
+//echo $fh->openForm(['action' => '', 'method' => 'GET']);
+//echo $fh->input(['name' => 'year']);
+//echo $fh->checkbox(['name' => 'check']);
+//echo $fh->submit();
+//echo $fh->closeForm();
