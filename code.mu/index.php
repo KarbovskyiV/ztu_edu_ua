@@ -22,6 +22,7 @@ include 'Classes/Select.php';
 include 'Classes/Option.php';
 include 'Classes/TagHelper.php';
 include 'Classes/FormHelper.php';
+include 'Classes/CookieShell.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -222,3 +223,9 @@ include 'Classes/FormHelper.php';
 //echo $fh->checkbox(['name' => 'check']);
 //echo $fh->submit();
 //echo $fh->closeForm();
+
+//$csh = new CookieShell;
+//$csh->set('test', '123', 0);
+//$csh->del('test');
+//echo $csh->get('test');
+
