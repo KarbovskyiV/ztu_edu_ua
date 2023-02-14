@@ -24,6 +24,7 @@ include 'Classes/TagHelper.php';
 include 'Classes/FormHelper.php';
 include 'Classes/CookieShell.php';
 include 'Classes/SessionShell.php';
+include 'Classes/Validator.php';
 
 // Data
 //$date = new Date('2025-12-31');
@@ -234,3 +235,6 @@ include 'Classes/SessionShell.php';
 //$ses->set('test', 123);
 //echo $ses->get('test');
 //$ses->del('test');
+
+$num = new Validator();
+var_dump($num->inLength('asdasdasdas', 0, 50));
