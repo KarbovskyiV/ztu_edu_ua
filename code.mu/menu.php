@@ -18,7 +18,7 @@ include 'Classes/Link.php';
 <ul>
     <?php
     echo (new Link)
-        ->setAttr('href', 'index.php')
+        ->setAttr('href', 'indexx.php')
         ->setAttr('class', 'link1 link2')
         ->setText('index')
         ->show();
