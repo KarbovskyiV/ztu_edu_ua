@@ -236,5 +236,5 @@ include 'Classes/Validator.php';
 //echo $ses->get('test');
 //$ses->del('test');
 
-$num = new Validator();
-var_dump($num->inLength('asdasdasdas', 0, 50));
+//$num = new Validator();
+//var_dump($num->inLength('asdasdasdas', 0, 50));
